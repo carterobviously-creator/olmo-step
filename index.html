@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>OLMO‑STEP (GitHub + Local LLM)</title>
+<title>OLMO‑STEP (GitHub + Qwen2.5 Instruct LLM)</title>
 <style>
   body { background:#05060a; color:#f5f5f5; font-family:system-ui; padding:20px; }
   textarea { width:100%; height:100px; background:#10121a; color:#f5f5f5; border:1px solid #333; padding:8px; }
@@ -12,8 +12,8 @@
 </head>
 <body>
 
-<h1>OLMO‑STEP (GitHub + Local LLM)</h1>
-<p><small>Browser LLM (transformers.js) → JSON • WebAudio + Web TTS → Music</small></p>
+<h1>OLMO‑STEP (GitHub + Local Browser LLM)</h1>
+<p><small>Qwen2.5‑0.5B‑Instruct → JSON → WebAudio</small></p>
 
 <textarea id="prompt">make a chill lofi song about coding late at night</textarea><br>
 <button id="go">Generate & Play</button>
@@ -34,15 +34,15 @@ document.getElementById("go").onclick = async () => {
   const out = document.getElementById("jsonOut");
 
   try {
-    status.textContent = "Loading local LLM (first run may take a while)…";
+    status.textContent = "Loading Qwen2.5‑0.5B‑Instruct… (first run is slow)";
     if (!generator) {
       generator = await pipeline(
         "text-generation",
-        "Xenova/distilgpt2" // tiny model, runs on CPU/WASM
+        "Xenova/Qwen2.5-0.5B-Instruct"
       );
     }
 
-    status.textContent = "Generating JSON song…";
+    status.textContent = "Generating JSON…";
 
     const song = await fetchSong(prompt);
     out.textContent = JSON.stringify(song, null, 2);
@@ -71,7 +71,7 @@ JSON schema:
       "name": string,
       "lyrics": string,
       "instrument": string,
-      "melody": [number],   // scale degrees 0–11
+      "melody": [number],
       "drums": [
         { "time": number, "hit": "kick" | "snare" | "hat" }
       ]
@@ -81,8 +81,8 @@ JSON schema:
 
 Rules:
 - Use 2–4 sections.
-- melody length 8–16 notes per section.
-- drums times are integers (0,1,2,3,...) in beats.
+- melody length 8–16 notes.
+- drums times are integers.
 - No text outside JSON.
 `.trim();
 
@@ -90,7 +90,7 @@ Rules:
 
   const out = await generator(fullPrompt, {
     max_new_tokens: 512,
-    temperature: 0.8,
+    temperature: 0.7,
     top_p: 0.95,
   });
 
