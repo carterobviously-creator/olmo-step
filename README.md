@@ -22,6 +22,4 @@ these gpus can run musicgen-small very fast
 to install run do this :
 1. make a folder whare you want it
 2. if you have git do this in your new folder hit shift + right click now hit open in termnal  now run : git clone https://github.com/carterobviously-creator/olmo-step
-3. it will install  some pip and cuda things
-4. it is dont start making music with ace-step lite!
-5. note: this runs on cuda! / cpu fall back!
+3.it will install pip,torch,and the model ~2-3 gb
