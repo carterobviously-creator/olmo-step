@@ -1,0 +1,45 @@
+body {
+    background: url('https://i.imgur.com/2yaf2cE.jpeg') no-repeat center center fixed;
+    background-size: cover;
+    font-family: 'Orbitron', sans-serif;
+    color: #fff;
+}
+
+.title {
+    text-align: center;
+    font-size: 3rem;
+    color: #ff66ff;
+    text-shadow: 0 0 20px #ff00ff;
+    margin-bottom: 20px;
+}
+
+.neon-dropdown select, .neon-textbox textarea {
+    background: rgba(20, 0, 40, 0.7);
+    border: 2px solid #ff00ff;
+    color: #fff;
+    box-shadow: 0 0 10px #ff00ff;
+}
+
+.neon-slider input {
+    accent-color: #ff00ff;
+}
+
+.neon-button {
+    background: linear-gradient(90deg, #ff00ff, #ff66ff);
+    border: none;
+    color: white;
+    padding: 15px;
+    font-size: 1.2rem;
+    border-radius: 10px;
+    box-shadow: 0 0 20px #ff00ff;
+}
+
+.neon-button:hover {
+    box-shadow: 0 0 30px #ff33ff;
+}
+
+.neon-audio {
+    border: 2px solid #ff00ff !important;
+    box-shadow: 0 0 20px #ff00ff;
+    border-radius: 10px;
+}
