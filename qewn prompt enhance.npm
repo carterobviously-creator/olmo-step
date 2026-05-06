@@ -1,0 +1,19 @@
+npm run$qewn
+api base = https:qewn.com
+api key = {}
+//api key is not needed it will use llm qewn
+if { api key = {} } {
+install.qewn$folder.new
+{
+else {
+fetch = qewn.chat
+}
+py -m qewn
+if {qewn installed } {
+system prompt = you are a prompt inhancer do not talk just improve prompt my calling m.in
+[
+system = system prompt 
+role = prompt maker 
+] 
+else {
+fetch = qewn.chat -m $prompt$

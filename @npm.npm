@@ -1,0 +1,14 @@
+npm:ace-step {
+c/clr/ace-step
+}
+i++ = c/m/#.1s
+for {i++=loop$10} {
+npm -n train$
+}
+if { ace-step not found } {
+npm:ace-step lite.py
+get -npm <.git> 
+move${
+train.npm
+} 
+    }
